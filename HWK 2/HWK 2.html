@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Homepage</title>
+	<style>
+		body {
+			font-family:Verdana, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav {
+			background-color: #d670ac;
+			color:#ffffff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 20px;
+			position: sticky;
+			top: 0;
+			z-index: 1;
+		}
+
+		nav a {
+			color:#ffffff;
+			margin-right: 20px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+	
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 50px;
+		}
+
+		.photo {
+			margin-right: 50px;
+		}
+
+		.photo img {
+			max-width: 300px;
+			height: auto;
+			border-radius: 50%;
+			box-shadow: 0 0 10px(0, 0, 0, 0.3);
+		}
+
+		.info {
+			margin-bottom: 50px;
+		}
+
+		.info h1 {
+			font-size: 36px;
+			margin-bottom: 10px;
+		}
+
+		.info p {
+			font-size: 18px;
+			line-height: 1.5;
+			margin-bottom: 10px;
+		}
+
+		.section {
+			width: 100%;
+			max-width: 800px;
+			margin-bottom: 50px;
+			padding: 20px;
+			background-color: #d4f0f8;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		}
+
+		.section h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+
+		.section ul {
+			margin-left: 20px;
+		}
+
+		.section li {
+			font-size: 18px;
+			line-height: 1.5;
+			margin-bottom: 5px;
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<a href="#home">Home</a>
+		<a href="#about">About</a>
+		<a href="#contact">Contact</a>
+	</nav>
+	<div class="container">
+		<div class="photo">
+			<img src="20220509_115137.jpg" alt="Photo">
+		</div>
+		<div class="info">
+			<h1>Stephania Rey</h1>
+			<p>Occupation:Software Engineering Student</p>
+			<p>Email: stephaniarey@gmail.com</p>
+			<p>Phone:(858)539-5552</p>
+			<p>Address:10410 Reserve Drive, San Diego, CA</p>
+		</div>
+		<div class="section">
+			<h2>Education</h2>
+			<ul>
+				<li>Bachelor of Science in Software Engineering, CSUSM, 2023</li>
+				</ul>
+                <section>
+                    <h2>Experience</h2>
+                    <ul>
+                        <li>Intern, BROADCOM, Summer 2019</li>
+                        <li>Web Developer,DOCFULY, 2018-2020</li>
+                    </ul>
+                </section>
+                
+                <!-- Skills section -->
+                <section>
+                    <h2>Skills</h2>
+                    <ul>
+                        <li>C++</li>
+                        <li>PYTHON</li>
+                        <li>Java</li>
+                    </ul>
+                </section>
+</html>
