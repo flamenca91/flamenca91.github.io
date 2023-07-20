@@ -1,2 +1,2 @@
-# flamenca91.github.io
-Music Store Webpage
+# TheNote
+CIS 444 - Team 3

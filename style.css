@@ -1,0 +1,208 @@
+ /* styles for select elements */
+    select {
+        border-radius: 5px;
+        border-width: 2px;
+        background-color: red;
+        border-color: black;
+        font-weight: bold;
+        font-style: italic;
+        height: 28px;
+        margin: 5px;
+    }
+
+    /* hover style for select elements */
+    select:hover {
+        color: red;
+        border-color: lightblue;
+        background-color: #00222A;
+    }
+
+    /* remove text decoration for all links */
+    a {
+      color: white;
+      padding-right: 20px;
+    }
+    /* style for table */
+    table {
+            border-collapse: collapse;
+            width: 50%;
+            
+        }
+ /* set left alignment for table cells */	
+    td, th {
+        text-align: left;
+    }
+
+/* set maximum width for images */	
+    img {
+        max-width: 100%;
+        height: auto;
+  background-color: lightblue;
+    }
+/* set background color and remove margin for body element */
+body {
+    font-family: Verdana, sans-serif;
+    background-color: white;
+    margin-bottom: 50px;
+}
+/* style for search bar */    
+#searchbar {
+    width: 500px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px
+}
+
+/* style for customer buttons */
+.customerbuttons {
+    color: black;
+    text-decoration: underline;
+    font-weight: bold
+}
+/* style for customer buttons */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+.col {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  /* style all products pics, display of price, and ratings*/
+.col-3 {
+    flex: 1;
+    margin:  10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s;
+  }
+  
+  .col-3 img {
+    width: 100%;
+    object-fit: cover;
+    height: 200px; 
+  }
+  .col-3:hover{
+    transform: translateY(-5px);
+  }
+
+  /* set the desired height for the images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+ /* sets decoration for main title in each product page */
+.title{
+  text-align: center;
+  margin: 0 auto 80px;
+  position: relative;
+  line-height: 60px;
+  color:#555;
+
+}
+.title::after{
+content: '';
+background: #ff523b;
+width: 80px;
+height: 5px;
+border-radius: 5px;
+position:absolute;
+bottom: 0;
+left: 47%;
+transform:translate(-50);
+}
+
+
+.small-container{
+    max-width:1080px;
+    margin:auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* adjusts header 2 font and alignment*/
+h2 {
+    text-align: left;
+    text: underline;
+  }
+  h2 span {
+    border-bottom: 1px solid black;
+  }
+/* star rating color*/
+  .yellow {
+    color: #FFD700;
+    position: relative;
+    top: -20px;
+  }
+  
+/* price font color*/
+  .red {
+    color: red;
+    position: relative;
+    top: -20px;
+  }
+
+
+/* This section styles the navigation links */
+nav a {
+color: red;
+text-decoration: none;
+font-size: 14px;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-style: italic;
+  background-color: red;
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  color: red; /*Changed from beige*/
+  background-color: #00222A;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+footer {
+  background: linear-gradient(red, #00222A);
+  padding: 20px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: beige;
+    flex-shrink: 0;
+  }
+  .footer-links {
+    text-align: center;
+    margin: 10px;
+  }
+  .footer-links a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
