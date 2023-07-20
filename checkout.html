@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+       * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  }
+
+  select {
+  border-radius: 5px;
+  border-width: 2px;
+  background-color: red;
+  border-color: black;
+  font-weight: bold;
+  font-style: italic;
+  height: 28px;
+  margin: 5px;
+  }
+    footer {
+    background: linear-gradient(red, #00222A);
+    padding: 20px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: beige;
+  }
+  .footer-links {
+    text-align: center;
+    margin: 10px;
+  }
+  .footer-links a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+
+  /* remove text decoration for all links */
+  a {
+    color: white;
+    padding-right: 20px;
+  }
+
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+  }
+
+img {
+	max-width: 100%;
+	height: auto;
+  background-color: lightblue;
+	}
+
+td, th {
+	text-align: left;
+  }
+
+  select:hover {
+    color: beige;
+    border-color: lightblue;
+    background-color: #00222A;
+    }
+
+#searchbar {
+  width: 500px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 5px
+  }
+
+.customerbuttons {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold
+  }
+
+.row {
+  display: block;
+  text-align: center;
+  }
+
+.column {
+  column {
+  margin: 0 10px; /* Change the value to adjust the spacing */
+  }
+  }
+
+.column img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+.caption {
+  text-align: center;
+  margin-top: 10px;
+  }
+
+.row > .column {
+  padding: 0 8px;
+  }
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+
+.column {
+  float: left;
+  width: 25%;
+  }
+
+h3 {
+  color: black;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 200;
+}
+
+h4 {
+  color: black;
+  font-weight: bold;
+  margin-top: auto;
+}
+
+form {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    }
+
+.container {
+  margin: 0 auto;
+  border: none;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.col-25 {
+  flex: 1 0 25%;
+}
+
+.col-50 {
+  flex: 1 0 50%;
+}
+
+.col-75 {
+  flex: 1 0 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  height: 40px;
+}
+
+label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  font-style: italic;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: red;
+  color: solid black;
+  padding: 12px;
+  border: 1px solid black;
+  width: 50%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-image: linear-gradient(to bottom, #00657c, black);
+  color: beige;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-style: italic;
+  background-color: red;
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  color: beige;
+  background-color: #00222A;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
+</head>
+<body>
+<!-- header with image link -->
+  <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">    
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+              <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+    
+   <!-- navigation menu with select elements -->
+  <p style="background-color: red; text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value;">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.php">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Acchtmlessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <br>
+  </p>
+    <body>
+    <div class="row">
+        <div class="col-75">
+            <div class="container">
+              <form action="action_page.html" style="border-radius: 10px;">
+    
+                    <div class="row">
+                        <div class="col-50">
+                            <h3>Billing Address</h3>
+                            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Enter Full Name">
+                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                            <input type="text" id="email" name="email" placeholder="thenote@example.com">
+                            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                            <input type="text" id="adr" name="address" placeholder="333 S Twin Oaks Valley Rd">
+                            <label for="city"><i class="fa fa-institution"></i> City</label>
+                            <input type="text" id="city" name="city" placeholder="Enter City">
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" name="state" placeholder="Enter State">
+                                </div>
+                                <div class="col-50">
+                                    <label for="zip">Zip</label>
+                                    <input type="text" id="zip" name="zip" placeholder="Enter Zipcode">
+                                </div>
+                            </div>
+        </div>
+        <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+                <img src="https://media.discordapp.net/attachments/1081053312775889007/1087095661398331504/visa.png?width=253&height=161" alt="Visa logo" style="width:50px;height:30px;">
+                <img src="https://media.discordapp.net/attachments/1081053312775889007/1087096182360256543/amex.png?width=253&height=161" alt="Amex logo" style="width:50px;height:30px;">
+                <img src="https://media.discordapp.net/attachments/1081053312775889007/1087096283497517179/mastercard.png?width=179&height=139" alt="Mastercard logo" style="width:50px;height:30px;">
+                <img src="https://media.discordapp.net/attachments/1081053312775889007/1087096418029818066/discover.png?width=269&height=151" alt="Discover logo" style="width:50px;height:30px;">
+             </div>
+        <label for="cname">Name on Card</label>
+        <input type="text" id="cname" name="cardname" placeholder="Enter Full Name">
+        <label for="ccnum">Credit card number</label>
+        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+
+        <div class="row">
+            <div class="col-50">
+                <label for="exp">Expiration date</label>
+                <input type="text" id="exp" name="exp" placeholder="MM / YY" required>
+            </div>
+            <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="###">
+            </div>
+        </div>
+    </div>
+    </div>
+    <label>
+        <input style= "margin-left: 50%;" type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+    </label>
+    <input style= "margin-left: 50%;" type="submit" value="Place order" class="btn">
+    </form>
+    </div>
+    </div>
+    <!-- Footer -->
+<div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>     
+</body>
+</html>

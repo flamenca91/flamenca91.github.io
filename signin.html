@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        select {
+            border-radius: 5px;
+            border-width: 2px;
+            background-color: red;
+            border-color: black;
+            font-weight: bold;
+            font-style: italic;
+            height: 28px;
+            margin: 5px;
+        }  
+        
+        footer {
+        background: linear-gradient(red, #00222A);
+        padding: 20px;
+      }
+
+            .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: beige;
+        }
+        .footer-links {
+        text-align: center;
+        margin: 10px;
+        }
+        .footer-links a {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+        }
+
+        /* remove text decoration for all links */
+        a {
+            color: white;
+            padding-right: 20px;
+        }
+
+        table {
+			border-collapse: collapse;
+			width: 100%;
+            
+		}
+
+        img {
+			max-width: 100%;
+			height: auto;
+            background-color: lightblue;
+		}
+
+        td, th {
+			text-align: left;
+		}
+
+        b {
+            color: black;
+            font-size: 20px;
+            font-style: normal;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        select:hover {
+            color: beige;
+            border-color: lightblue;
+            background-color: #00222A;
+        }
+
+        #searchbar {
+        width: 500px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 5px
+        }
+
+        .customerbuttons {
+        color: black;
+        text-decoration: underline;
+        font-weight: bold
+        }
+
+        .row {
+        display: block;
+        text-align: center;
+        }
+
+        .column {
+        column {
+        margin: 0 10px; /* Change the value to adjust the spacing */
+        }
+        }
+
+        .column img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        .caption {
+        text-align: center;
+        margin-top: 10px;
+        }
+
+        .row > .column {
+           padding: 0 8px;
+        }
+
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        .column {
+            float: left;
+            width: 25%;
+        }
+
+        form {
+            border: none;
+            border-radius: 10px;
+            width: 45%;
+            margin: 0 auto;
+            height: 400px;
+        }
+
+        label {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: block;
+            }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        button {
+            font-style: italic;
+            font-weight: bold;
+            background-color: red;
+            border-radius: 10px;
+            color: solid black;
+            border: 1px solid black;
+            cursor: pointer;
+            width: 30%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            height: 40px;
+            font-size: 17px;
+        }
+
+        button:hover {
+            background-image: linear-gradient(to bottom, #00657c, black);
+            color: beige;
+        }
+        .cancelbtn {
+            color: solid black;
+            width: auto;
+            padding: 10px 18px;
+            background-color: red;
+            height: 40px;
+        }
+
+        .cancelbtn:hover {
+            background-color: white;
+            opacity: 0.8;
+        }
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        .dropdown-content {
+        font-style: italic;
+        background-color: red;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+        color: beige;
+        background-color: #00222A;
+        }
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+
+        .demo {
+            opacity: 0.6;
+        }
+
+        .signupbtn input {
+          font-style: italic;
+          font-weight: bold;
+          background-color: transparent;
+          border-radius: 10px;
+          color: solid black;
+          border: transparent;
+          cursor: pointer;
+          width: 100%;
+          margin: auto;
+          height: 30px;
+          font-size: 17px;
+          background: transparent;
+        }
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+  <!-- header with image link -->
+  <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">    
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+              <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+    
+   <!-- navigation menu with select elements -->
+  <p style="background: linear-gradient(#00222A, red); text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value"; style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.html">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Accessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Specials</option>
+      <option value="specials.html">NoteSpecials</option>
+    </select>
+    <br>
+  </p>
+	
+	
+    <form method="get" action="validateUser.html">
+        <div class="imgcontainer">
+            <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+        </div>
+        <div class="container">
+            <p style="text-align: center; font-size: 20px; font-style: italic; font-weight: bold; margin-top: auto;">Welcome back</p>
+            <hr>
+            <label style= "text-align: left; " for="uname">Email Address</label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <!-- <label style= "text-align: left; " for="uname">Username</label>
+            <input type="text" placeholder="Enter Username" name="uname" required> -->
+            <label style= "text-align: left;" for="psw">Password</label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <button class="signupbtn"><input class = "signupbtn" type="submit" value="Sign In"/></button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+        <div class="container">
+            <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+            <span class="psw"><a href="">Forgot password?</a></span>
+        </div>
+    </form>
+    <div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>
+</body>
+</html>

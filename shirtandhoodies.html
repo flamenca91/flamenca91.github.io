@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+  <title>Shirt and Hoodies</title>
+  <link rel="stylesheet"  href="style.css">
+  <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      var formData = new FormData();
+
+      checkboxes.forEach(function(checkbox) {
+        formData.append('item[]', checkbox.value);
+      });
+
+      fetch('shoppingcart.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        // Handle the response if needed
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
+
+<body>
+  <!-- header with image link -->
+  <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">    
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+              <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+    
+   <!-- navigation menu with select elements -->
+  <p style="background: linear-gradient(#00222A, red); text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value"; style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.html">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Accessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Specials</option>
+      <option value="specials.html">NoteSpecials</option>
+    </select>
+    <br>
+  </p>
+
+  <!-- Merchandise -->
+  <!-- Shirts and Hoodies -->
+  <form action="shoppingcart.html" method="post">
+    <fieldset style="border: transparent;">
+    <h2 class="title" id = "Shirts">Shirts</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="tshirt1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Bravado Queen Crest White T-Shirt</h4>
+                <input type="checkbox" name="item[]" value="bravado_t" <?php if (isset($_POST['item']) && in_array('bravado_t', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$16.99</p>
+            </div>
+            <div class="col-3">
+                <img src="tshirt2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Guitar Center Jimi Hendrix Mural T-Shirt</h4>
+                <input type="checkbox" name="item[]" value="gc_t" <?php if (isset($_POST['item']) && in_array('gc_t', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$16.50</p>
+            </div>
+            <div class="col-3">
+                <img src="tshirt3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Slash Wearing Top Hat T-Shirt</h4>
+                <input type="checkbox" name="item[]" value="slash_t" <?php if (isset($_POST['item']) && in_array('slash_t', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $23.50</p>
+            </div>
+            <div class="col-3">
+                <img src="tshirt4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Pink Floyd Pulse Concentric T-Shirt Blue</h4>
+                <input type="checkbox" name="item[]" value="pink_floyd_t" <?php if (isset($_POST['item']) && in_array('pink_floyd_t', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $29.50</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+  <!-- Hoodies -->
+  <fieldset style="border: transparent;">
+    <h2 class="title" id = "Hoodies">Hoodies</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="hoodie1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Zildjian Olive Hoodie</h4>
+                <input type="checkbox" name="item[]" value="zildjian_h" <?php if (isset($_POST['item']) && in_array('zildjian_h', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$45.50</p>
+            </div>
+            <div class="col-3">
+                <img src="hoodie2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Vic Firth Craft Red Hoodie</h4>
+                <input type="checkbox" name="item[]" value="vicfirth_h" <?php if (isset($_POST['item']) && in_array('vicfirth_h', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$36.50</p>
+            </div>
+            <div class="col-3">
+                <img src="hoodie3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>PRS Private Stock Logo Red Hoodie</h4>
+                <input type="checkbox" name="item[]" value="prs_h" <?php if (isset($_POST['item']) && in_array('prs_h', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $60.00</p>
+            </div>
+            <div class="col-3">
+                <img src="hoodie4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>JZildjian Limited-Edition Cotton Hoodie</h4>
+                <input type="checkbox" name="item[]" value="zildjian_h" <?php if (isset($_POST['item']) && in_array('zildjian_h', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $21.50</p>
+            </div>
+        </div>
+        <input type="submit" value="Add to Cart">
+    </fieldset>
+</form>
+
+<div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>
+
+   </body>
+   </html>

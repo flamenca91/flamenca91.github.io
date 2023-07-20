@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ's</title>
+    <style>
+
+    #contents {
+        text-align: center;
+    }
+
+    /* set background color and remove margin for body element */
+    body {
+        background: white;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+    }
+
+    select {
+        border-radius: 5px;
+        border-width: 2px;
+        background-color: red;
+        border-color: black;
+        font-weight: bold;
+        font-style: italic;
+        height: 28px;
+        margin: 5px;
+    }
+
+    /* hover style for select elements */
+    select:hover {
+        color: beige;
+        border-color: lightblue;
+        background-color: #00222A;
+    }
+    #FAQs {
+    text-align: center;
+    text-decoration: underline;
+    }
+
+    footer {
+  background: linear-gradient(red, #00222A);
+  padding: 20px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: beige;
+}
+.footer-links {
+  text-align: center;
+  margin: 10px;
+}
+.footer-links a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+  /* remove text decoration for all links */
+    a {
+      color: white;
+      padding-right: 20px;
+    }
+
+    h2 {
+      color: beige;
+      font-style: italic;
+    }
+  
+    /* style for table */
+    table {
+			border-collapse: collapse;
+			width: 100%;
+            
+		}
+	 /* set left alignment for table cells */	
+		td, th {
+			text-align: left;
+		}
+
+	/* set maximum width for images */	
+		img {
+			max-width: 100%;
+			height: auto;
+
+		}
+    /* set background color and remove margin for body element */
+    body {
+        background-color: white;
+        margin: 0;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 10px;
+        /* margin: 8px 0; */
+        display: inline-block;
+        border: 1px solid black;
+        box-sizing: border-box;
+    }
+    /* style for search bar */    
+    #searchbar {
+        width: 500px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 5px
+    }
+    /* style for customer buttons */
+    .customerbuttons {
+        color: black;
+        text-decoration: underline;
+        font-weight: bold
+    }
+    /* style for customer buttons */
+    .row {
+        display: block;
+        text-align: center;
+    }
+  
+    /* style for column */
+   .column {
+    margin: 0 10px; /* Change the value to adjust the spacing */
+  }
+  
+    /* style for images in columns */
+  .column img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+    /* style for caption */
+  .caption {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+    /* style for body */
+  body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* use box-sizing border-box for all elements */
+* {
+  box-sizing: border-box;
+}
+
+ /* style for row with columns */
+.row > .column {
+  padding: 0 8px;
+}
+
+/* clear floats after row */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* style for column */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* image bordering */
+img {
+  margin-bottom: -4px;
+  border-radius: 20px;
+}
+
+/* hover over special deals section */
+.hover-shadow:hover {
+    filter: brightness(150%);
+}
+
+/* hover over shop by category section */
+.popularImages:hover {
+  opacity: 0.7;
+}
+
+/* This section styles the caption container */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+}
+  
+/* This section styles the demo */
+.demo {
+  opacity: 0.6;
+}
+
+
+/* This section styles the navigation links */
+nav a {
+  color: red;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-style: italic;
+  background-color: red;
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  color: beige;
+  background-color: #00222A;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+</head>
+    
+    
+<body>
+ <!-- header with image link -->
+ <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+                <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+    
+   <!-- navigation menu with select elements -->
+  <p style="background: linear-gradient(#00222A, red); text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value"; style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.html">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Accessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Specials</option>
+      <option value="specials.html">NoteSpecials</option>
+    </select>
+    <br>
+  </p>
+    
+    <div id = "contents">
+        <h1 style="font-style: italic;" id = "FAQs">Frequently asked questions</h1>
+            <h3 style="font-style: italic;">Do you offer added coverage?</h3>
+                <p style = "text-indent: 30px">We do offer an added coverage that covers any accidental damage for up to one year.</p>
+            <h3 style="font-style: italic;">What should I do if my order came damaged?</h3>
+                <p style = "text-indent: 30px">Please send us a picture of the damaged product with the order number and we can take it back with no questions asked and 
+                    refund all of your money. </p>
+            <h3 style="font-style: italic;">What is your return policy?</h3>
+                <p style = "text-indent: 30px">We allow 90 days for any returns. Merchandise cannot be returned if tags have been removed and they have been worn and washed.</p>
+            <h3 style="font-style: italic;">What are your customer service hours?</h3>
+                <p style = "text-indent: 30px">Our customer service hours are 9:00 AM - 9:00 PM</p>
+            <h3 style="font-style: italic;">What are your shipping policies?</h3>
+                <p style = "text-indent: 30px">We have free shipping on most products and also offer expedited shipping!</p>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>          
+
+    </body>
+    
+
+    </html>

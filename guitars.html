@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+  <title>Guitars</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet "href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      var formData = new FormData();
+
+      checkboxes.forEach(function(checkbox) {
+        formData.append('item[]', checkbox.value);
+      });
+
+      fetch('shoppingcart.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        // Handle the response if needed
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
+
+<body>
+   <!-- header with image link -->
+   <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">    
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+              <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+    
+  <!-- navigation menu with select elements -->
+  <p style="background: linear-gradient(#00222A, red); text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value"; style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.html">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Accessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Specials</option>
+      <option value="specials.html">NoteSpecials</option>
+    </select>
+    <br>
+  </p>
+  
+ <!-- Guitars -->  
+ <!-- Classical Guitars -->
+ <form action="shoppingcart.html" method="post">
+    <fieldset style="border: transparent;">
+    <h2 class="title" id = "CGuitars">Classical Guitars</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="classical1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Yamaha C40 Classical Guitar Natural</h4>
+                <input type="checkbox" name="item[]" value="yam_cc" <?php if (isset($_POST['item']) && in_array('yam_cc', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$820.00</p>
+            </div>
+            <div class="col-3">
+                <img src="classical2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Cordoba Fusion 5 Acoustic-Electric Classical Guitar</h4>
+                <input type="checkbox" name="item[]" value="cordoba_5" <?php if (isset($_POST['item']) && in_array('cordoba_5', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$85.50</p>
+            </div>
+            <div class="col-3">
+                <img src="classical3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Lucero LC150S Spruce/Sapele Classical Guitar Natural</h4>
+                <input type="checkbox" name="item[]" value="lucero" <?php if (isset($_POST['item']) && in_array('lucero', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $145.00</p>
+            </div>
+            <div class="col-3">
+                <img src="classical4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Ibanez AEG50N Acoustic-Electric Classical Guitar Gloss Black</h4>
+                <input type="checkbox" name="item[]" value="ibanez_aeg" <?php if (isset($_POST['item']) && in_array('ibanez_aeg', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $125.50</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+<!----- Acoustic Guitars ------------>
+<fieldset style="border: transparent;">
+<h2 class="title" id = "AGuitars">Acoustic Guitars</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="acoustic1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Guild M-40 Troubadour Acoustic Guitar Natural</h4>
+                <input type="checkbox" name="item[]" value="guild_m" <?php if (isset($_POST['item']) && in_array('guild_m', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$770.00</p>
+            </div>
+            <div class="col-3">
+                <img src="acoustic2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Martin Special 35 Style Bearclaw Engelmann Spruce Top Dreadnought Acoustic Guitar Natural</h4>
+                <input type="checkbox" name="item[]" value="martin" <?php if (isset($_POST['item']) && in_array('martin', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$1200.00</p>
+            </div>
+            <div class="col-3">
+                <img src="acoustic3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Blueridge Contemporary Series BR-343 000 Acoustic Guitar (Gospel Model)</h4>
+                <input type="checkbox" name="item[]" value="blueridge" <?php if (isset($_POST['item']) && in_array('blueridge', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $810.00</p>
+            </div>
+            <div class="col-3">
+                <img src="acoustic4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>ILag Guitars Tramontane T70ACE Auditorium Cutaway Acoustic-Electric Guitar Satin Natural</h4>
+                <input type="checkbox" name="item[]" value="ilag" <?php if (isset($_POST['item']) && in_array('ilag', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $140.50</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+  
+ <!-- Eelctric Guitars -->
+ <fieldset style="border: transparent;">
+ <h2 class="title" id = "Eguitars">Electric Guitars</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="electric1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Fender Custom Shop Limited-Edition '62 Stratocaster Heavy Relic Electric Guitar Aged Olympic White over 3-Color Sunburst</h4>
+                <input type="checkbox" name="item[]" value="strato" <?php if (isset($_POST['item']) && in_array('strato', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$220.00</p>
+            </div>
+            <div class="col-3">
+                <img src="electric2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>PRS SE Silver Sky Electric Guitar Dragon Fruit</h4>
+                <input type="checkbox" name="item[]" value="prs_se" <?php if (isset($_POST['item']) && in_array('prs_se', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$79.99</p>
+            </div>
+            <div class="col-3">
+                <img src="electric3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Epiphone Les Paul Traditional Pro IV Limited-Edition Electric Guitar Worn Pacific Blue</h4>
+                <input type="checkbox" name="item[]" value="lespaul" <?php if (isset($_POST['item']) && in_array('lespaul', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $44.99</p>
+            </div>
+            <div class="col-3">
+                <img src="electric4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Squier Affinity Series Telecaster Deluxe Electric Guitar Charcoal Frost Metallic</h4>
+                <input type="checkbox" name="item[]" value="squier" <?php if (isset($_POST['item']) && in_array('squier', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $65.50</p>
+            </div>
+        </div>
+        <input type="submit" value="Add to Cart">
+    </fieldset>
+</form>
+
+<div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>
+
+   </body>
+   </html>

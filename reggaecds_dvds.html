@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+  <title>Reggae CD's and Dvd's</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      var formData = new FormData();
+
+      checkboxes.forEach(function(checkbox) {
+        formData.append('item[]', checkbox.value);
+      });
+
+      fetch('shoppingcart.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        // Handle the response if needed
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
+
+<body>
+  <!-- header with image link -->
+  <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">    
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+              <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+  <!-- navigation menu with select elements -->
+  <p style="background: linear-gradient(#00222A, red); text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value"; style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.html">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Accessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Specials</option>
+      <option value="specials.html">NoteSpecials</option>
+    </select>
+    <br>
+  </p>
+  
+<!-- Reggae CD's and Dvd's -->
+<form action="shoppingcart.html" method="post">
+    <fieldset style="border: transparent;">
+    <h2 class="title" id = "RCd's">Reggae CDs</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="reggaecd1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Bob Marley & The Wailers - Legend</h4>
+                <input type="checkbox" name="item[]" value="bob_wailers" <?php if (isset($_POST['item']) && in_array('bob_wailers', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$24.99</p>
+            </div>
+            <div class="col-3">
+                <img src="reggaecd2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Desmond Dekker & the Aces - Israelites</h4>
+                <input type="checkbox" name="item[]" value="des_aces" <?php if (isset($_POST['item']) && in_array('des_aces', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$35.99</p>
+            </div>
+            <div class="col-3">
+                <img src="reggaecd3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Gregory Isaacs - Soon Forward</h4>
+                <input type="checkbox" name="item[]" value="greg_sf" <?php if (isset($_POST['item']) && in_array('greg_sf', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $18.00</p>
+            </div>
+            <div class="col-3">
+                <img src="reggaecd4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Peter Tosh - Legalize It</h4>
+                <input type="checkbox" name="item[]" value="peter_tosh" <?php if (isset($_POST['item']) && in_array('peter_tosh', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $46.00</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+<!-- Reggae Dvd's -->
+<fieldset style="border: transparent;">
+    <h2 class="title" id = "RDVD's">Reggae DVDs</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="reggaedvd1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Reggae Heroes, Vol. 2</h4>
+                <input type="checkbox" name="item[]" value="regg_hero" <?php if (isset($_POST['item']) && in_array('regg_hero', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$11.00</p>
+            </div>
+            <div class="col-3">
+                <img src="reggaedvd2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Rebel Music - The Bob Marley Story</h4>
+                <input type="checkbox" name="item[]" value="rebel_story" <?php if (isset($_POST['item']) && in_array('rebel_story', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$15.00</p>
+            </div>
+            <div class="col-3">
+                <img src="reggaedvd3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Rockers</h4>
+                <input type="checkbox" name="item[]" value="rockers" <?php if (isset($_POST['item']) && in_array('rockers', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $14.00</p>
+            </div>
+            <div class="col-3">
+                <img src="reggaedvd4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Fire in Babylon</h4>
+                <input type="checkbox" name="item[]" value="fire_inbabylon" <?php if (isset($_POST['item']) && in_array('fire_inbabylon', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $22.99</p>
+            </div>
+        </div>
+        <input type="submit" value="Add to Cart">
+    </fieldset>
+</form>
+
+<div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>         
+
+   </body>
+   </html>

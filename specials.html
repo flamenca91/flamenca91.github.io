@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+  <title>NoteSpecials</title>
+  <link rel="stylesheet"  href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      var formData = new FormData();
+
+      checkboxes.forEach(function(checkbox) {
+        formData.append('item[]', checkbox.value);
+      });
+
+      fetch('shoppingcart.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        // Handle the response if needed
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
+
+<body>
+  <!-- header with image link -->
+  <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">    
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+              <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+    
+ <!-- navigation menu with select elements -->
+  <p style="background: linear-gradient(#00222A, red); text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value"; style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.html">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Accessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Specials</option>
+      <option value="specials.html">NoteSpecials</option>
+    </select>
+    <br>
+  </p>
+  <!-- Specials -->
+  
+  <!-- Pearl Drums -->
+  <form action="shoppingcart.html" method="post">
+    <fieldset style="border: transparent;">
+    <h2 class="title" id = "PDrums">Pearl Drums</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="pearl1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Pearl Roadshow Complete 5-Piece Drum Set With Hardware and Cymbals Charcoal Metallic</h4>
+                <input type="checkbox" name="item[]" value="pearl_1" <?php if (isset($_POST['item']) && in_array('pearl_1', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$540.00</p>
+                <p class="red">Original Price:$700.00</p>
+            </div>
+            <div class="col-3">
+                <img src="pearl2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Pearl Session Studio Select Series 5-Piece Shell Pack Ice Blue Oyster</h4>
+                <input type="checkbox" name="item[]" value="pearl_2" <?php if (isset($_POST['item']) && in_array('pearl_2', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$700.99</p>
+                <p class="red">Original Price:$900.00</p>
+            </div>
+            <div class="col-3">
+                <img src="pearl3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Pearl Crystal Beat 4-Piece New Fusion Shell Pack Tangerine Glass</h4>
+                <input type="checkbox" name="item[]" value="pearl_3" <?php if (isset($_POST['item']) && in_array('pearl_3', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$1,000.00</p>
+                <p class="red">Original Price:$2,500.00</p>
+            </div>
+            <div class="col-3">
+                <img src="pearl4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Pearl Export Double Bass 8-Piece Drum Set Pure White</h4>
+                <input type="checkbox" name="item[]" value="pearl_4" <?php if (isset($_POST['item']) && in_array('pearl_4', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$1,500.00</p>
+                <p class="red">Original Price:$3,000.00</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+
+  <!--Sale Merchandise -->
+  <fieldset style="border: transparent;">
+  <h2 class="title" id ="SMerchandise">Sale Merchandise</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="merch1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Liquid Blue Men's Jimi Hendrix Pop Art 'Scuse Me While I Kiss The Sky T-Shirt</h4>
+                <input type="checkbox" name="item[]" value="merch_1" <?php if (isset($_POST['item']) && in_array('merch_1', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$19.10</p>
+                <p class="red">Original Price:$30.00</p>
+            </div>
+            <div class="col-3">
+                <img src="merch2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>DR Pro Tripod Mic Stand With Telescoping Boom 2-Pack</h4>
+                <input type="checkbox" name="item[]" value="merch_2" <?php if (isset($_POST['item']) && in_array('merch_2', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$150.50</p>
+                <p class="red">Original Price:$270.00</p>
+            </div>
+            <div class="col-3">
+                <img src="merch3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Road Runner Keyboard Bag Deep 61 Key</h4>
+                <input type="checkbox" name="item[]" value="merch_3" <?php if (isset($_POST['item']) && in_array('merch_3', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$45.00</p>
+                <p class="red">Original Price:$60.00</p>
+            </div>
+            <div class="col-3">
+                <img src="merch4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Musician's Gear Standard Instrument Cable Black Braid 20 ft. Black</h4>
+                <input type="checkbox" name="item[]" value="merch_4" <?php if (isset($_POST['item']) && in_array('merch_4', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Sale Price:$9.99</p>
+                <p class="red">Original Price:$16.00</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+
+  <!-- Ibanez Guitars -->
+  <fieldset style="border: transparent;">
+  <h2 class="title" id = "IGuitars">Ibanez Guitars</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="ibanezguitar1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Ibanez JEMJRSP Steve Vai Signature Electric Guitar Pink<</h4>
+                <input type="checkbox" name="item[]" value="ibanezguitar_1" <?php if (isset($_POST['item']) && in_array('ibanezguitar_1', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$350.00</p>
+                <p class="red"> Original Price:$499.99</p>
+            </div>
+            <div class="col-3">
+                <img src="ibanezguitar2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Ibanez PF15ECENT Performance Dreadnought Acoustic-Electric Guitar Natural</h4>
+                <input type="checkbox" name="item[]" value="ibanezguitar_2" <?php if (isset($_POST['item']) && in_array('ibanezguitar_2', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$249.00</p>
+                <p class="red"> Original Price:$390.00</p>
+            </div>
+            <div class="col-3">
+                <img src="ibanezguitar3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Ibanez AR520H Artist Hollowbody Black<</h4>
+                <input type="checkbox" name="item[]" value="ibanezguitar_3" <?php if (isset($_POST['item']) && in_array('ibanezguitar_3', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$530.00</p>
+                <p class="red"> Original Price:$749.99</p>
+            </div>
+            <div class="col-3">
+                <img src="ibanezguitar4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Ibanez RGA42HP RGA High Performance Electric Guitar Sea Foam Green Matte</h4>
+                <input type="checkbox" name="item[]" value="ibanezguitar_4" <?php if (isset($_POST['item']) && in_array('ibanezguitar_4', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$550.00</p>
+                <p class="red"> Original Price:$850.00</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+  <!-- Sale Cd's -->
+  <fieldset style="border: transparent;">
+  <h2 class="title" id = "SCd's"> Sale Cd's</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="salecd1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Timeless: The All Time Greatest Hits of Bee Gees</h4>
+                <input type="checkbox" name="item[]" value="salecd_1" <?php if (isset($_POST['item']) && in_array('salecd_1', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$12.00</p>
+                <p class="red"> Original Price:$25.00</p>
+            </div>
+            <div class="col-3">
+                <img src="salecd2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Queen:Platinum Collection</h4>
+                <input type="checkbox" name="item[]" value="salecd_2" <?php if (isset($_POST['item']) && in_array('salecd2', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$16.10</p>
+                <p class="red"> Original Price:$19.00</p>
+            </div>
+            <div class="col-3">
+                <img src="salecd3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Reggae Hits 31</h4>
+                <input type="checkbox" name="item[]" value="salecd_3" <?php if (isset($_POST['item']) && in_array('salecd_3', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$8.00</p>
+                <p class="red"> Original Price:$14.00</p>
+            </div>
+            <div class="col-3">
+                <img src="salecd4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Andre Bocceli - The Ultimate Collection</h4>
+                <input type="checkbox" name="item[]" value="salecd_4" <?php if (isset($_POST['item']) && in_array('salecd_4', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$11.00</p>
+                <p class="red"> Original Price:$20.00</p>
+            </div>
+        </div>
+    </fieldset>
+
+   <!-- Sale Dvd's -->
+   <fieldset style="border: transparent;">
+   <h2 class="title" id = "SDVD's"> Sale DVD's</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="saledvd1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Reba McEntire:My Chains Are Gone: Hymns & Gospel Favorites[DVD]</h4>
+                <input type="checkbox" name="item[]" value="saledvd_1" <?php if (isset($_POST['item']) && in_array('saledvd_1', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$13.99</p>
+                <p class="red"> Original Price:$17.99</p>
+            </div>
+            <div class="col-3">
+                <img src="saledvd2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Weird Al Yankovic: The Ultimate Video Collection<</h4>
+                <input type="checkbox" name="item[]" value="saledvd_2" <?php if (isset($_POST['item']) && in_array('saledvd_2', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$12.99</p>
+                <p class="red"> Original Price:$15.99</p>
+            </div>
+            <div class="col-3">
+                <img src="saledvd3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Live In Concert In Bucharest: The Dangerous Tour</h4>
+                <input type="checkbox" name="item[]" value="saledvd_3" <?php if (isset($_POST['item']) && in_array('saledvd_3', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$15.99</p>
+                <p class="red"> Original Price:$22.99</p>
+            </div>
+            <div class="col-3">
+                <img src="saledvd4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>>ABBA: The Definitive Collection</h4>
+                <input type="checkbox" name="item[]" value="saledvd_4" <?php if (isset($_POST['item']) && in_array('saledvd_4', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red"> Sale Price:$49.99</p>
+                <p class="red"> Original Price:$60.00</p>
+            </div>
+        </div>
+        <input type="submit" value="Add to Cart">
+    </fieldset>
+</form>
+
+<div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>
+
+   </body>
+   </html>

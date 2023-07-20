@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+  <title>Accessories</title>
+  <link rel="stylesheet"  href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      var formData = new FormData();
+
+      checkboxes.forEach(function(checkbox) {
+        formData.append('item[]', checkbox.value);
+      });
+
+      fetch('shoppingcart.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        // Handle the response if needed
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
+
+<body>
+  <!-- header with image link -->
+  <div style="background-color: #00222A;">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html"><img src="https://cdn.discordapp.com/attachments/1081053312775889007/1086413142743068802/cropped.jpg" alt="image description" width="450" height="200"></a>
+        </td>
+        <td style="text-align: right; color: grey">
+          333 S Twin Oaks Valley Rd, San Marcos, CA 92096<br>
+          <a href="tel:+18583828890"><span style="color: lightblue;">+1 (858) 382-8890</span></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+    
+  <!-- search bar and navigation links -->
+  <table style = "background-color: white">    
+    <tr>
+        <td><input style="margin-left: 8px;" type = "text" id = "searchbar"><input type = "submit" value = "Search" style ="margin-left: 6px; height: 34px; width: 75px; border-color: black; border-radius: 5px; border-width: 1px; font-size: 20px; background-color: lightgrey"></td>
+        <td>
+            <span style="display: flex; justify-content: right;">
+                <div class="dropdown">
+                  <a href="#"><img style="width: 29%; background-color: white; " src="https://media.discordapp.net/attachments/1081053312775889007/1098800015897530368/profile.png" alt="profile" class="profileIcon"></a>
+                  <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="signin.html">Login</a>
+                    <a href="signup.html">Sign up</a>
+                  </div>
+                </div>
+              <div class="dropdown">
+                <a href="shoppingcart.html"><img style="width: 30%; background-color: white;" src="https://media.discordapp.net/attachments/1081053312775889007/1098802071618199623/cart.png" alt="profile" class="profileIcon"></a>
+              </div>
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/05/instagram-logo.png" alt="Instagram logo" height= "100px" width = "98px" style="height: 30px; margin-right: 50px; margin-left: -50px;"/>
+            <img src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg?w=2000" alt="fb logo" height = "20px" width = "48px" style="height: 30px; margin-left: -10px; margin-right: 10px;">
+          </span>
+          </td>
+      </tr>   
+    </table>
+    
+  <!-- navigation menu with select elements -->
+  <p style="background: linear-gradient(#00222A, red); text-align: left; margin: 0; line-height: 2.5">
+    <select onchange="window.location.href=this.value"; style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">CDs/DVDs</option>
+      <option value="classicalcds_dvds.html">Classical</option>
+      <option value="popcds_dvds.html">Pop</option>
+      <option value="rockcdsanddvds.html">Rock &amp; Metal</option>
+      <option value="reggaecds_dvds.html">Reggae</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Records</option>
+      <option value="recordplayers.html">Record Players</option>
+      <option value="records.html">Vinyls</option>
+    </select>
+    <select onchange="window.location.href=this.value;" style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Merchandise</option>
+      <option value="shirtandhoodies.html">Shirts &amp; Hoodies</option>
+      <option value="accessories.html">Accessories</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Instruments</option>
+      <option value="guitars.html">Guitars</option>
+      <option value="drums.html">Drums</option>
+      <option value="pianos.html">Pianos &amp; Keyboards</option>
+    </select>
+    <select onchange="window.location.href=this.value;"  style = "background: linear-gradient(grey, lightgrey)">
+      <option value="">Specials</option>
+      <option value="specials.html">NoteSpecials</option>
+    </select>
+    <br>
+  </p>
+  <!-- Accessories -->
+  
+  <!-- Cases -->
+  <form action="shoppingcart.html" method="post">
+    <fieldset style="border: transparent;">
+    <h2 class="title" id = "ICases">Instrument Cases</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="case1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Gator G-TOURTRK452212 Truck Pack Trunk; 45"x22"x27"; 12mm; w/ dividers</h4>
+                <input type="checkbox" name="item[]" value="gator_g" <?php if (isset($_POST['item']) && in_array('gator_g', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$800.00</p>
+            </div>
+            <div class="col-3">
+                <img src="case2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Road Runner RRDWA Deluxe Wood Dreadnought Acoustic Case</h4>
+                <input type="checkbox" name="item[]" value="roadrunner" <?php if (isset($_POST['item']) && in_array('roadrunner', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$90.99</p>
+            </div>
+            <div class="col-3">
+                <img src="case3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Gator GKB Nylon Keyboard Gig Bag 88 Key</h4>
+                <input type="checkbox" name="item[]" value="gator_gkb" <?php if (isset($_POST['item']) && in_array('gator_gkb', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $150.00</p>
+            </div>
+            <div class="col-3">
+                <img src="case4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Road Runner Avenue Series 5-Piece Drum Bag Set Standard - 12x11, 13x12, 16x16, 14x6.5, 22x18 in. Black</h4>
+                <input type="checkbox" name="item[]" value="rr_avenue" <?php if (isset($_POST['item']) && in_array('rr_avenue', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $120.50</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+  <!--Guitar Accessories -->
+  <fieldset style="border: transparent;">
+  <h2 class="title" id = "GAccessories">Guitar Accessories</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="guitaraccessories1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Ernie Ball 2221 Nickel Regular Slinky Electric Guitar Strings 6 Pack</h4>
+                <input type="checkbox" name="item[]" value="ernie_ball" <?php if (isset($_POST['item']) && in_array('ernie_ball', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$30.33</p>
+            </div>
+            <div class="col-3">
+                <img src="guitaraccessories2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Gear One GS5 Guitar Stand Black</h4>
+                <input type="checkbox" name="item[]" value="gear_one" <?php if (isset($_POST['item']) && in_array('gear_one', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$15.99</p>
+            </div>
+            <div class="col-3">
+                <img src="guitaraccessories3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Peterson StroboStomp HD Tuner Pedal</h4>
+                <input type="checkbox" name="item[]" value="strobo_stomp" <?php if (isset($_POST['item']) && in_array('strobo_stomp', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $160.00</p>
+            </div>
+            <div class="col-3">
+                <img src="guitaraccessories4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Fender Professional Series Straight to Straight Instrument Cable 10 ft. Woodland Camouflage</h4>
+                <input type="checkbox" name="item[]" value="fender" <?php if (isset($_POST['item']) && in_array('fender', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $42.50</p>
+            </div>
+        </div>
+    </fieldset>
+
+
+
+
+
+  <!-- Keyboard Accessories -->
+  <fieldset style="border: transparent;">
+  <h2 class="title" id = "KAccessories"> Keyboard Accessories</h2>
+        <div class="row" style="display: flex;">
+            <div class="col-3">
+                <img src="keyboardaccessory1.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Yamaha L-125 Keyboard Stand Black</h4>
+                <input type="checkbox" name="item[]" value="yamaha_key" <?php if (isset($_POST['item']) && in_array('yamaha_key', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$205.00</p>
+            </div>
+            <div class="col-3">
+                <img src="keyboardaccessory2.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Yamaha LP-1 3-Pedal Unit for DGX-670, P-121, P-125 and P-515 Black</h4>
+                <input type="checkbox" name="item[]" value="pedal_unit" <?php if (isset($_POST['item']) && in_array('pedal_unit', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price:$75.00</p>
+            </div>
+            <div class="col-3">
+                <img src="keyboardaccessory3.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>Proline PL1100 Padded Keyboard Bench</h4>
+                <input type="checkbox" name="item[]" value="proline" <?php if (isset($_POST['item']) && in_array('proline', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $44.99</p>
+            </div>
+            <div class="col-3">
+                <img src="keyboardaccessory4.jpg" alt="" style="width: 75%; height: auto;">
+                <h4>On-Stage KS8291 Heavy-Duty Deluxe X ERGO-LOK Keyboard Stand</h4>
+                <input type="checkbox" name="item[]" value="ergo_lo" <?php if (isset($_POST['item']) && in_array('ergo_lo', $_POST['item'])) echo 'checked'; ?>>
+                <p class="red">Price: $65.50</p>
+            </div>
+        </div>
+        <input type="submit" value="Add to Cart">
+    </fieldset>
+</form>
+
+<div class="footer">
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    </footer> 
+</div>
+
+   </body>
+   </html>
